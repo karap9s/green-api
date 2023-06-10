@@ -4,9 +4,8 @@ import Conversations from "./conversations/Conversations.jsx";
 import Chat from "./chat/Chat.jsx";
 
 const ChatPage = ({ data }) => {
-  const [activeChat, setActiveChat] = useState(false);
+  const [activeChat, setActiveChat] = useState("");
   const [conversations, setConversations] = useState([]);
-  const [messages, setMessages] = useState([]);
 
   return (
     <div className={styles.wrapper}>
@@ -17,8 +16,8 @@ const ChatPage = ({ data }) => {
       />
       <Chat
         activeChat={activeChat}
-        messages={messages}
-        setMessages={setMessages}
+        setConversations={setConversations}
+        conversations={conversations}
       />
     </div>
   );

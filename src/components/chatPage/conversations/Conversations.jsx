@@ -4,9 +4,10 @@ import CustomInput from "../../../componentUtils/CustomInput/CustomInput.jsx";
 
 const Conversations = ({ conversations, setConversations, setActiveChat }) => {
   const onKeyDown = (event) => {
+    const text = event.target.value;
     if (event.key === "Enter") {
-      if (conversations.length) return;
-      setConversations((prev) => [...prev, event.target.value]);
+      if (!text.length) return;
+      setConversations((prev) => [...prev, { [event.target.value]: [] }]);
     }
   };
 
@@ -19,15 +20,21 @@ const Conversations = ({ conversations, setConversations, setActiveChat }) => {
       />
 
       <div className={styles.conversations}>
-        {conversations.map((conversation, index) => (
-          <div
-            key={`${conversation.phone}-${index}`}
-            className={styles.conversation}
-            onClick={() => setActiveChat(true)}
-          >
-            {conversation}
-          </div>
-        ))}
+        {conversations.map((el, index) => {
+          const key = Object.keys(el)[0];
+          return (
+            <div
+              key={index}
+              className={styles.conversation}
+              onClick={() => {
+                console.log(key);
+                setActiveChat(key);
+              }}
+            >
+              {key}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

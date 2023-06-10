@@ -6,7 +6,6 @@ const sendMessage = async (apiTokenInstance, chatId, message) => {
     message: message,
   });
   console.log(apiCall);
-  return apiCall;
 };
 
 export default sendMessage;
