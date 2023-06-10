@@ -1,0 +1,12 @@
+.wrapper {
+    width: 30%;
+}
+
+.input {
+    width: 80%;
+    padding-left: 10%;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    background-color: #222e35;
+}

@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
 
-const CustomInput = ({placeholder, callback}) => {
-    return (
-        <>
-            <input onChange={callback} placeholder={placeholder}/>
-        </>
-    );
+const CustomInput = ({ placeholder, callback, className, onKeyDown }) => {
+  return (
+    <>
+      <input
+        className={className && className.map((style) => style)}
+        onChange={callback}
+        onKeyDown={onKeyDown}
+        placeholder={placeholder}
+      />
+    </>
+  );
 };
 
 export default CustomInput;
