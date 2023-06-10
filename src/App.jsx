@@ -1,7 +1,7 @@
 import "./App.css";
 import WelcomePage from "./components/welcomePage";
 import ChatPage from "./components/chatPage/index.jsx";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
   const [data, setData] = useState(

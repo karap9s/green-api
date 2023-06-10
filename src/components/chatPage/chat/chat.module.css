@@ -3,3 +3,26 @@
     height: 100%;
     background-color: #222e35;
 }
+
+.chat_wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chat {
+    height: 90%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.chat_input {
+    width: 90%;
+    margin: 0 auto;
+    height: 10%;
+    font-size: 30px;
+    padding: 0 60px 0 20px;
+    background-color: #2a3942;
+}

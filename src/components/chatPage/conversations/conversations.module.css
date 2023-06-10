@@ -6,8 +6,6 @@
     width: 80%;
     padding-left: 10%;
     height: 35px;
-    border: none;
-    border-radius: 8px;
     background-color: #222e35;
 }
 
@@ -21,6 +19,7 @@
     height: 72px;
     border-bottom: 1px solid #222d34;
     transition: .5s;
+    padding: 0 20px;
 }
 
 .conversation:hover {
