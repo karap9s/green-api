@@ -10,3 +10,20 @@
     border-radius: 8px;
     background-color: #222e35;
 }
+
+.conversations {
+    margin-top: 20px;
+}
+
+.conversation {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    border-bottom: 1px solid #222d34;
+    transition: .5s;
+}
+
+.conversation:hover {
+    background-color: #222e35;
+    cursor: pointer;
+}
