@@ -5,7 +5,7 @@ import Chat from "./chat/Chat.jsx";
 
 const ChatPage = ({ data }) => {
   const [activeChat, setActiveChat] = useState("");
-  const [conversations, setConversations] = useState([]);
+  const [conversations, setConversations] = useState({});
 
   return (
     <div className={styles.wrapper}>

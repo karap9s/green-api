@@ -8,22 +8,12 @@ const Chat = ({ activeChat, conversations, setConversations }) => {
     const text = event.target.value;
     if (event.key === "Enter") {
       if (!text.length) return;
+      setConversations((prev) => {
+        const newVal = [...prev[activeChat], text];
+        return { ...prev, [activeChat]: newVal };
+      });
 
-      const index = conversations.findIndex((obj) =>
-        obj.hasOwnProperty(activeChat)
-      );
-      if (index === -1) return;
-      const updatedObj = {
-        [activeChat]: [...conversations[index][activeChat], text],
-      };
-      const updatedConversations = [
-        ...conversations.slice(0, index),
-        updatedObj,
-        ...conversations.slice(index + 1),
-      ];
-      setConversations(updatedConversations);
-
-      // sendMessage(localStorage.getItem("token"), conversations[0], text);
+      sendMessage(localStorage.getItem("token"), activeChat, text);
       event.target.value = "";
     }
   };

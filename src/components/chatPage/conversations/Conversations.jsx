@@ -7,7 +7,10 @@ const Conversations = ({ conversations, setConversations, setActiveChat }) => {
     const text = event.target.value;
     if (event.key === "Enter") {
       if (!text.length) return;
-      setConversations((prev) => [...prev, { [event.target.value]: [] }]);
+      setConversations((prevConversations) => ({
+        ...prevConversations,
+        [text]: [],
+      }));
     }
   };
 
@@ -20,8 +23,7 @@ const Conversations = ({ conversations, setConversations, setActiveChat }) => {
       />
 
       <div className={styles.conversations}>
-        {conversations.map((el, index) => {
-          const key = Object.keys(el)[0];
+        {Object.keys(conversations).map((key, index) => {
           return (
             <div
               key={index}
