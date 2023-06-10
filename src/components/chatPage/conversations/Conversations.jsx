@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./conversations.module.css";
 import CustomInput from "../../../componentUtils/CustomInput/CustomInput.jsx";
 
-const Conversations = ({ conversations, setConversations }) => {
+const Conversations = ({ conversations, setConversations, setActiveChat }) => {
   const onKeyDown = (event) => {
     if (event.key === "Enter") {
       if (conversations.length) return;
@@ -23,6 +23,7 @@ const Conversations = ({ conversations, setConversations }) => {
           <div
             key={`${conversation.phone}-${index}`}
             className={styles.conversation}
+            onClick={() => setActiveChat(true)}
           >
             {conversation}
           </div>
