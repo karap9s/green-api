@@ -1,30 +1,31 @@
-import React from 'react';
-import {Button, Form, Input} from "antd";
+import React, {useEffect, useState} from 'react';
 import styles from "./index.module.css";
+import CustomInput from "../../componentUtils/CustomInput/CustomInput.jsx";
 
-const WelcomePage = () => {
-    const {Item} = Form;
-    const onFinish = (val) => {
-        try {
-            console.log(val);
-        } catch (err) {
-            console.log(err);
-        }
-    }
+const WelcomePage = ({setData}) => {
+    const [id, setId] = useState("");
+    const [token, setToken] = useState("");
+
+
     return (
         <div className={styles.wrapper}>
-            <h1>Добро пожаловать!</h1>
-            <Form className={styles.form} onFinish={onFinish} name="login">
-                <h3>idInstance</h3>
-                <Item>
-                    <Input/>
-                </Item>
-                <h3>apiTokenInstance</h3>
-                <Item>
-                    <Input/>
-                </Item>
-                <Button className={styles.submit_btn}>Войти</Button>
-            </Form>
+            <h1 className={styles.main_heading}>Добро пожаловать!</h1>
+            <>
+                <h3 className={styles.additional_heading}>idInstance</h3>
+                <CustomInput callback={(e) => setId(e.target.value)} placeholder={"Введите ваши данные"}/>
+            </>
+
+            <>
+                <h3 className={styles.additional_heading}>apiTokenInstance</h3>
+                <CustomInput callback={(e) => setToken(e.target.value)} placeholder={"Введите ваши данные"}/>
+            </>
+
+            <button onClick={() => {
+                localStorage.setItem("id", id);
+                localStorage.setItem("token", token);
+                setData({id: id, token: token});
+            }} className={styles.submit_btn}>Войти
+            </button>
         </div>
     );
 };
